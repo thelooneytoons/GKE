@@ -13,12 +13,35 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/thelooneytoons-tasks/python-image:v1"]
 
-  - name: "gcr.io/cloud-builders/kubect"
+  - name: gcr.io/cloud-builders/kubectl
     args:
-      - "run"
-      - "gke-cluster"
-      - "--image=gcr.io/thelooneytoons-tasks/python-image:v1"
-      - "--port=8080"
+      - cluster-info
+    env:
+      - CLOUDSDK_COMPUTE_REGION="us-central1-c"
+      - CLOUDSDK_CONTAINER_CLUSTER="gke-cluster"
+      - KUBECONFIG=/workspace/.kube/config
+
+  - name: gcr.io/$PROJECT_ID/helm
+    args:
+      - upgrade
+      - -i
+      - my-app
+      - ./kubernetes
+      - --set
+      - image.repository="gcr.io/thelooneytoons-tasks/python-image:v1"
+      - -f
+      - ./kubernetes/values.yaml
+    env:
+      - KUBECONFIG=/workspace/.kube/config
+      - TILLERLESS=false
+      - TILLER_NAMESPACE=kube-system
+
+  # - name: "gcr.io/cloud-builders/kubect"
+  #   args:
+  #     - "run"
+  #     - "gke-cluster"
+  #     - "--image=gcr.io/thelooneytoons-tasks/python-image:v1"
+  #     - "--port=8080"
 
 timeout: 1000s
 
