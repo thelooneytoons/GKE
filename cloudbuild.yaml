@@ -1,0 +1,30 @@
+steps:
+  - name: "hashicorp/terraform:1.0.0"
+    args: ["init"]
+
+  - name: "hashicorp/terraform:1.0.0"
+    args: ["apply", "-auto-approve"]
+
+  #Docker Build
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/thelooneytoons-tasks/python-image:v1", "."]
+
+  # Docker Push
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/thelooneytoons-tasks/python-image:v1"]
+
+  - name: "gcr.io/cloud-builders/kubect"
+    args:
+      - "run"
+      - "gke-cluster"
+      - "--image=gcr.io/thelooneytoons-tasks/python-image:v1"
+      - "--port=8080"
+
+timeout: 1000s
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+# kubectl run -it --rm busybox-1321-run --image=gcr.io/$project_id/busybox:1.32.1 -n default -- sh
+
+# images:
+# - "gcr.io/thelooneytoons-tasks/python-image:v1"
