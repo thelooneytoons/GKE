@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 WORKDIR /usr/src/app
 RUN apt-get update && apt-get install -y python3 python3-pip;
-# RUN apt-get install curl;
+RUN apt-get install -y wget;
 # RUN pip install -r requirements.txt
 # RUN apt-get install python3.8;
 # RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py; 
