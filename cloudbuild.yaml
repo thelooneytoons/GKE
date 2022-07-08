@@ -17,8 +17,8 @@ steps:
     args:
       - cluster-info
     env:
-      - CLOUDSDK_COMPUTE_REGION="us-central1"
-      - CLOUDSDK_CONTAINER_CLUSTER="gke-cluster"
+      - CLOUDSDK_COMPUTE_REGION=$_CUSTOM_REGION
+      - CLOUDSDK_CONTAINER_CLUSTER=$_CUSTOM_CLUSTER
       - KUBECONFIG=/workspace/.kube/config
 
   - name: gcr.io/$PROJECT_ID/helm
@@ -44,6 +44,9 @@ steps:
   #     - "--port=8080"
 
 timeout: 1000s
+substitutions:
+  _CUSTOM_REGION: us-central1
+  _CUSTOM_CLUSTER: gke-cluster
 
 options:
   logging: CLOUD_LOGGING_ONLY
