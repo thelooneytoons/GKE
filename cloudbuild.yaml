@@ -45,7 +45,7 @@ steps:
 
 timeout: 1000s
 substitutions:
-  _CUSTOM_REGION: us-central1
+  _CUSTOM_REGION: us-central1-c
   _CUSTOM_CLUSTER: gke-cluster
 
 options:
