@@ -16,8 +16,9 @@ spec:
         app.kubernetes.io/instance: "{{ .Release.Name }}"
     spec:
       containers:
-        - name: { { .Chart.Name } }
-          image: "{{ .Values.image.repository }}: {{ .Values.image.tag }}"
+        - name: python-image
+          image: gcr.io/thelooneytoons-tasks/python-image:v1
+          # "{{ .Values.image.repository }}: {{ .Values.image.tag }}"
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           envFrom:
             - configMapRef:
