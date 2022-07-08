@@ -4,6 +4,15 @@ kind: Ingress
 metadata:
   name: {{ .Chart.Name }}
 spec:
-  backend:
-      serviceName: {{ .Chart.Name  }}
-      servicePort: http
+  tls:
+    - secretName: tls-secret
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: { { .Chart.Name } }
+                port:
+                  number: 8080
