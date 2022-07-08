@@ -17,7 +17,7 @@ steps:
     args:
       - cluster-info
     env:
-      - CLOUDSDK_COMPUTE_REGION=$_CUSTOM_REGION
+      - CLOUDSDK_COMPUTE_ZONE=$_CUSTOM_REGION
       - CLOUDSDK_CONTAINER_CLUSTER=$_CUSTOM_CLUSTER
       - KUBECONFIG=/workspace/.kube/config
 
@@ -45,7 +45,7 @@ steps:
 
 timeout: 1000s
 substitutions:
-  _CUSTOM_REGION: us-central1
+  _CUSTOM_REGION: us-central1-c
   _CUSTOM_CLUSTER: gke-cluster
 
 options:
