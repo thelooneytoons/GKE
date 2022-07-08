@@ -1,0 +1,14 @@
+---
+replicaCount: 1
+
+image:
+  repository: gcr.io/thelooneytoons-tasks/python-image
+  tag: v1
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 80
+
+app_port: 3000
+environment: production
