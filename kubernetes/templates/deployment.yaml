@@ -20,18 +20,18 @@ spec:
           image: gcr.io/thelooneytoons-tasks/python-image:v1
           # "{{ .Values.image.repository }}: {{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          envFrom:
-            - configMapRef:
-                name: {{ .Chart.Name }}
+#           envFrom:
+#             - configMapRef:
+#                 name: {{ .Chart.Name }}
           ports:
-            - name: http
-              containerPort: {{ .Values.app_port }}
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 8080
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8080
+              - containerPort: 8080
+#               {{ .Values.app_port }}
+#               protocol: TCP
+#           livenessProbe:
+#             httpGet:
+#               path: /
+#               port: 8080
+#           readinessProbe:
+#             httpGet:
+#               path: /
+#               port: 8080
