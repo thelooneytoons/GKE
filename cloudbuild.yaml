@@ -26,11 +26,9 @@ steps:
       - upgrade
       - -i
       - my-app
-      - /workspace/kubernetes
-      - --set
-      - image.repository="gcr.io/thelooneytoons-tasks/python-image:new"
+      - ./kubernetes
       - -f
-      - /workspace/kubernetes/values.yaml
+      - ./kubernetes/values.yaml
     env:
       - KUBECONFIG=/workspace/.kube/config
       - TILLERLESS=false
