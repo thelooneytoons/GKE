@@ -1,6 +1,7 @@
 
 FROM ubuntu:latest
 WORKDIR /usr/src/app
+COPY . .
 RUN apt-get update && apt-get install -y python3 python3-pip;
 RUN apt-get install -y wget;
 # RUN apt-get install curl;
@@ -14,10 +15,10 @@ RUN apt-get install -y wget;
 RUN pip3 install mysql-connector-python flask;
 RUN wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -o cloud_sql_proxy;
 RUN chmod +x cloud_sql_proxy;
-RUN ./cloud_sql_proxy -instances=thelooneytoons-tasks:us-central1:sql-instance-8=tcp:3306 &
+RUN chmod +x script.sh;
 EXPOSE 8080
-ENTRYPOINT [ "python3" ]
-CMD [ "connect.py" ]
+ENTRYPOINT [ "sh" ]
+CMD [ "./script.sh" ]
 
 
 # FROM ubuntu:latest
