@@ -3,7 +3,7 @@ FROM ubuntu:latest
 WORKDIR /usr/src/app
 COPY . .
 RUN apt-get update && apt-get install -y python3 python3-pip;
-RUN apt-get install -y wget;
+RUN apt-get install -y curl;
 # RUN apt-get install curl;
 # RUN pip install -r requirements.txt
 # RUN apt-get install python3.8;
@@ -13,7 +13,7 @@ RUN apt-get install -y wget;
 # RUN cd /connect;
 # # RUN pip3 install -r requirements.txt;
 RUN pip3 install mysql-connector-python flask;
-RUN wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -o cloud_sql_proxy;
+RUN curl https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -o cloud_sql_proxy;
 RUN chmod +x cloud_sql_proxy;
 RUN chmod +x script.sh;
 EXPOSE 8080
