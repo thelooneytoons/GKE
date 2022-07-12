@@ -10,5 +10,5 @@ service:
   type: NodePort
   port: 8080
 
-app_port: 3000
+app_port: 8080
 environment: production
