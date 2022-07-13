@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: python-image
-          image: gcr.io/thelooneytoons-tasks/python-image:new5
+          image: gcr.io/thelooneytoons-tasks/python-image:new4
           # "{{ .Values.image.repository }}: {{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 #           envFrom:
