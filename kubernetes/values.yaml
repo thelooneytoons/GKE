@@ -2,7 +2,7 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/thelooneytoons-tasks/python-image
+  repository: gcr.io/thelooneytoons-tasks/python-image2
   tag: new4
   pullPolicy: Always
 
