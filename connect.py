@@ -22,7 +22,7 @@ def disp(num):
   mycursor = mydb.cursor(buffered= True)
   mycursor.execute("CREATE TABLE IF NOT EXISTS customers (name VARCHAR(255), address VARCHAR(255))")
   sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-  val = (f"square of {num}", num**2)
+  val = ("data", num**2)
   
   mycursor.execute(sql, val)
 
