@@ -18,20 +18,7 @@ spec:
       containers:
         - name: python-image
           image: gcr.io/thelooneytoons-tasks/python-image:new4
-          # "{{ .Values.image.repository }}: {{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-#           envFrom:
-#             - configMapRef:
-#                 name: {{ .Chart.Name }}
+
           ports:
               - containerPort: 8080
-#               {{ .Values.app_port }}
-#               protocol: TCP
-#           livenessProbe:
-#             httpGet:
-#               path: /
-#               port: 8080
-#           readinessProbe:
-#             httpGet:
-#               path: /
-#               port: 8080

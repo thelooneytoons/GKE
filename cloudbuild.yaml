@@ -34,13 +34,6 @@ steps:
       - TILLERLESS=false
       - TILLER_NAMESPACE=kube-system
 
-  # - name: "gcr.io/cloud-builders/kubect"
-  #   args:
-  #     - "run"
-  #     - "gke-cluster"
-  #     - "--image=gcr.io/thelooneytoons-tasks/python-image:v1"
-  #     - "--port=8080"
-
 timeout: 1000s
 substitutions:
   _CUSTOM_REGION: us-central1-c
@@ -48,7 +41,3 @@ substitutions:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-# kubectl run -it --rm busybox-1321-run --image=gcr.io/$project_id/busybox:1.32.1 -n default -- sh
-
-# images:
-# - "gcr.io/thelooneytoons-tasks/python-image:v1"
