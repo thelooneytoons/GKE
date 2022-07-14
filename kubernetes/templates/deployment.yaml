@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
         - name: python-image
-          image: gcr.io/thelooneytoons-tasks/python-image2:new4
+          image:  gcr.io/thelooneytoons-tasks/new-docker3:v1
+          # gcr.io/thelooneytoons-tasks/python-image2:new4
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 
           ports:
