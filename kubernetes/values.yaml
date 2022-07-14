@@ -2,9 +2,8 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/thelooneytoons-tasks/new-docker3
-  # gcr.io/thelooneytoons-tasks/python-image2
-  tag: v1
+  repository: gcr.io/thelooneytoons-tasks/python-image2
+  tag: new4
   pullPolicy: Always
 
 service:
