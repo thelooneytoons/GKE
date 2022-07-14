@@ -7,7 +7,7 @@ steps:
 
   # Docker Build
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/thelooneytoons-tasks/python2-image:new4", "."]
+    args: ["build", "-t", "gcr.io/thelooneytoons-tasks/python-image2:new4", "."]
 
   # Docker Push
   - name: "gcr.io/cloud-builders/docker"
