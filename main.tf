@@ -32,7 +32,7 @@ resource "google_project_iam_binding" "project-2" {
 
 resource "google_project_iam_binding" "project-3" {
   project = var.app_project
-  role    = "roles/roles/logging.admin"
+  role    = "roles/logging.admin"
   members = [
     "serviceAccount:${google_service_account.service_account_1.email}",
   ]
