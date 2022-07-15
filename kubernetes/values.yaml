@@ -3,7 +3,6 @@ replicaCount: 1
 
 image:
   repository: gcr.io/thelooneytoons-tasks/python-image
-  tag: latest
   pullPolicy: Always
 
 service:
