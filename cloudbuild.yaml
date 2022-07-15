@@ -11,13 +11,13 @@ steps:
       [
         "build",
         "-t",
-        "gcr.io/thelooneytoons-tasks/python-image2:$COMMIT_SHA",
+        "gcr.io/thelooneytoons-tasks/python-image:$COMMIT_SHA",
         ".",
       ]
 
   # Docker Push
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/thelooneytoons-tasks/python-image2:$COMMIT_SHA"]
+    args: ["push", "gcr.io/thelooneytoons-tasks/python-image:$COMMIT_SHA"]
 
   # - name: "gcr.io/cloud-builders/docker"
   #   args: ["pull", "gcr.io/thelooneytoons-tasks/python-image2:new4"]
