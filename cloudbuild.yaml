@@ -36,6 +36,8 @@ steps:
       - -i
       - my-app
       - ./kubernetes
+      - --set
+      - image.repository="gcr.io/thelooneytoons-tasks/python-image:$COMMIT_SHA"
       - -f
       - ./kubernetes/values.yaml
     env:
