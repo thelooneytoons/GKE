@@ -8,8 +8,7 @@ resource "google_container_cluster" "primary" {
     machine_type    = var.machine_type
     service_account = google_service_account.service_account_1.email
     oauth_scopes = [
-      "https://www.googleapis.com/auth/logging.write",
-      "https://www.googleapis.com/auth/monitoring",
+      "https://www.googleapis.com/auth/cloud-platform",
     ]
 
     metadata = {
