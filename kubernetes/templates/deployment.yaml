@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: python-image
-          image: gcr.io/thelooneytoons-tasks/python-image:final
+          image: gcr.io/thelooneytoons-tasks/python-image:latest
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 
           ports:
